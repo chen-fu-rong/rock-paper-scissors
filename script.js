@@ -30,10 +30,21 @@ function scoreMessage() {
 function winnerMessage() {
     const winnerElement = document.querySelector(".winner");
     if (humanScore === 5) {
+        humanScore = 0;
+        computerScore = 0;
         winnerElement.textContent = "You won the game."
+        winnerDisplayed = true;
     } else if (computerScore === 5) {
+        humanScore = 0;
+        computerScore = 0;
         winnerElement.textContent = "Computer won the game."
+        winnerDisplayed = true;
+    } else {
+        if (!winnerDisplayed) {
+            winnerElement.textContent = "";
+        }
     }
+    winnerDisplayed = false;
 }
 
 function playRound(humanChoice, computerChoice) {
@@ -62,6 +73,7 @@ function playRound(humanChoice, computerChoice) {
         resultMessage("Invalid input!")
     }
     scoreMessage();
+    winnerMessage();
 }
 
 const rockButton = document.querySelector(".rock-button");
