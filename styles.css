@@ -6,8 +6,8 @@ body {
     align-items: center;
     flex-direction: column;
     font-family: oswald, sans-serif;
-    flex: 1;
 }
+
 
 button {
     font-size: 150px;

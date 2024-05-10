@@ -27,6 +27,15 @@ function scoreMessage() {
     scoreElement.textContent = `Your score is ${humanScore} and computer score is ${computerScore}.`
 }
 
+function winnerMessage() {
+    const winnerElement = document.querySelector(".winner");
+    if (humanScore === 5) {
+        winnerElement.textContent = "You won the game."
+    } else if (computerScore === 5) {
+        winnerElement.textContent = "Computer won the game."
+    }
+}
+
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === "rock" && computerChoice === "paper") {
         computerScore++
@@ -53,20 +62,6 @@ function playRound(humanChoice, computerChoice) {
         resultMessage("Invalid input!")
     }
     scoreMessage();
-
-
-}
-
-
-
-function winner() {
-    if(humanScore > computerScore) {
-        console.log("You Win!");
-    } else if (computerScore > humanScore) {
-        console.log("Computer Wins!")
-    } else if (humanScore === computerScore) {
-        console.log("It's a tie! Play more!")
-    }
 }
 
 const rockButton = document.querySelector(".rock-button");
