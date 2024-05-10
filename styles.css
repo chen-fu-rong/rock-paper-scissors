@@ -1,0 +1,17 @@
+body {
+    background: rgb(15,32,39);
+    background: linear-gradient(90deg, rgba(15,32,39,1) 0%, rgba(32,58,67,1) 51%, rgba(44,83,100,1) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+button {
+    font-size: 150px;
+    padding: 10px;
+    border-radius: 12px;
+    border-style: none;
+    margin: 20px;
+    background-color: grey;
+}

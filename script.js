@@ -20,27 +20,29 @@ let computerScore = 0;
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === "rock" && computerChoice === "paper") {
         computerScore++
-        return "You Lose! Paper beats Rock."
+        console.log("You Lose! Paper beats Rock.")
     } else if (humanChoice === "rock" && computerChoice === "scissors") {
         humanScore++
-        return "You Win! Rock beats Scissors."
+        console.log("You Win! Rock beats Scissors.")
     } else if (humanChoice === "paper" && computerChoice === "rock") {
         humanScore++
-        return "You Win! Paper beats Rock."
+        console.log("You Win! Paper beats Rock.")
     } else if (humanChoice === "paper" && computerChoice === "scissors") {
         computerScore++
-        return "You Lose! Scissors beats Paper."
+        console.log("You Lose! Scissors beats Paper.")
     } else if (humanChoice === "scissors" && computerChoice === "rock") {
         computerScore++
-        return "You Lose! Rock beats scissors."
+        console.log("You Lose! Rock beats scissors.")
     } else if (humanChoice === "scissors" && computerChoice === "paper") {
         humanScore++
-        return "You Win! Scissors beats Paper."
+        console.log("You Win! Scissors beats Paper.")
     } else if (humanChoice === computerChoice) {
-        return "It's a tie!"
+        console.log("It's a tie!")
     } else {
-        return "Invalid input!"
+        console.log("Invalid input!")
     }
+
+    
 }
 
 
@@ -65,4 +67,19 @@ function winner() {
     }
 }
 
-playGame(5);
+const rockButton = document.querySelector(".rock-button");
+const paperButton = document.querySelector(".paper-button");
+const scissorsButton = document.querySelector(".scissors-button");
+
+rockButton.addEventListener("click", () => {
+    playRound("rock", getComputerChoice());
+});
+
+paperButton.addEventListener("click", () => {
+    playRound("paper",getComputerChoice());
+})
+
+scissorsButton.addEventListener("click", () => {
+    playRound("scissors", getComputerChoice());
+})
+
