@@ -17,52 +17,47 @@ function getHumanChoice() {
 let humanScore = 0;
 let computerScore = 0;
 
-function displayMessage(message) {
-    const displayContainer = document.querySelector(".display-container");
-    const result = document.createElement("p");
-    result.textContent = message;
-    displayContainer.appendChild(result);
+function resultMessage(message) {
+    const resultElement = document.querySelector(".result");
+    resultElement.textContent = message;
+}
+
+function scoreMessage() {
+    const scoreElement = document.querySelector(".score");
+    scoreElement.textContent = `Your score is ${humanScore} and computer score is ${computerScore}.`
 }
 
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === "rock" && computerChoice === "paper") {
         computerScore++
-        displayMessage("You Lose! Paper beats Rock.")
+        resultMessage("You Lose! Paper beats Rock.")
     } else if (humanChoice === "rock" && computerChoice === "scissors") {
         humanScore++
-        displayMessage("You Win! Rock beats Scissors.")
+        resultMessage("You Win! Rock beats Scissors.")
     } else if (humanChoice === "paper" && computerChoice === "rock") {
         humanScore++
-        displayMessage("You Win! Paper beats Rock.")
+        resultMessage("You Win! Paper beats Rock.")
     } else if (humanChoice === "paper" && computerChoice === "scissors") {
         computerScore++
-        displayMessage("You Lose! Scissors beats Paper.")
+        resultMessage("You Lose! Scissors beats Paper.")
     } else if (humanChoice === "scissors" && computerChoice === "rock") {
         computerScore++
-        displayMessage("You Lose! Rock beats scissors.")
+        resultMessage("You Lose! Rock beats scissors.")
     } else if (humanChoice === "scissors" && computerChoice === "paper") {
         humanScore++
-        displayMessage("You Win! Scissors beats Paper.")
+        resultMessage("You Win! Scissors beats Paper.")
+        scoreMessage();
     } else if (humanChoice === computerChoice) {
-        displayMessage("It's a tie!")
+        resultMessage("It's a tie!")
     } else {
-        displayMessage("Invalid input!")
+        resultMessage("Invalid input!")
     }
+    scoreMessage();
 
-    
+
 }
 
 
-function playGame(times) {
-    for (let i=0; i < times; i++) {
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-        console.log(playRound(humanSelection, computerSelection));
-        console.log(`Your score is ${humanScore} and Computer score is ${computerScore}.`)
-        
-    }
-    winner();
-}
 
 function winner() {
     if(humanScore > computerScore) {
